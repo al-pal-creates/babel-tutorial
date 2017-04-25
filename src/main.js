@@ -1,11 +1,14 @@
-console.log('Hello World!');
+//console.log('Hello World!');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
- 
-document.addEventListener('DOMContentLoaded', function() {
+import Board from './Board';
+import { observe } from './Game';
+
+const rootEl = document.getElementById('root');
+
+observe(knightPosition =>
   ReactDOM.render(
-    React.createElement(Counter),
-    document.getElementById('mount')
-  );
-});
+    <Board knightPosition={knightPosition} />,
+    rootEl
+  )
+);
